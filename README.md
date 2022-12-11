@@ -1,6 +1,6 @@
 # MixDepsPatch
 
-Script for patching dependencies before compilation.
+Task for patching dependencies after downloading from hex, before compilation.
 This is an alternative for creating github forks and can be used without git installed.
 The only dependency is the `patch` command.
 

@@ -8,8 +8,25 @@ defmodule MixDepsPatch.MixProject do
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
       escript: escript(),
-      deps: deps()
+      deps: deps(),
+      description: description(),
+      package: package()
     ]
+  end
+
+  def description do
+    """
+    Task for patching dependencies after downloading from hex, before compilation.
+    This is an alternative for creating github forks and can be used without git installed.
+    The only dependency is the `patch` command.
+    """
+  end
+
+  def package do
+    %{
+      licenses: ["BSD-2-Clause"],
+      links: %{"GitHub" => "https://github.com/dkuku/deps.patch"}
+    }
   end
 
   def application do

@@ -32,8 +32,11 @@ defmodule Mix.Tasks.Deps.Patch do
     |> Enum.map(&run_patch/1)
     |> Enum.reject(fn {_dep, _patch, success?} -> success? end)
     |> case do
-      [] -> "everything patched"
-      failed_list -> "some patches failed: #{Enum.map_join(failed_list, ",\n", & "#{inspect(&1)}")}"
+      [] ->
+        "everything patched"
+
+      failed_list ->
+        "some patches failed: #{Enum.map_join(failed_list, ",\n", &"#{inspect(&1)}")}"
     end
     |> print_to_console()
   end
